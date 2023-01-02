@@ -1,0 +1,17 @@
+{
+    "contents" : "\nlibrary(twitteR)\nlibrary(rworldmap)\nlibrary(igraph)\n\n###############################################################\n# twitter account:\n\naccess_token_key <- \"1404825878-r4htKGEg8C45YIqtjH74fbBJiPDMypsfRABzq5C\"\naccess_token_secret <- \"aU4aRhW6axlYtZ0HXxXdlBQJQwL45veggmbTh4do\"\n\nconsumer_key <- \"PCfUxPHPI2ycSURLiGTQ\"\nconsumer_secret <- \"RvQoOlLbD1Cc1M7XB38cDjy9p0pIdFnfgAMv6hmFw\"\n\nsetup_twitter_oauth(consumer_key, \n                    consumer_secret, \n                    access_token=access_token_key, \n                    access_secret=access_token_secret)\n\n",
+    "created" : 1442158393876.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1617120032",
+    "id" : "5D7BF5A4",
+    "lastKnownWriteTime" : 1439723348,
+    "path" : "~/Blog/ec2/_INPROGRESS_twitter/init.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

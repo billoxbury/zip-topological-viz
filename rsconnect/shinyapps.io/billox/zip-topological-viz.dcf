@@ -1,0 +1,14 @@
+name: zip-topological-viz
+title: zip-topological-viz
+username:
+account: billox
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7906072
+bundleId: 6686078
+url: https://billox.shinyapps.io/zip-topological-viz/
+when: 1672496881.00281
+lastSyncTime: 1672496881.00282
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data/.DS_Store

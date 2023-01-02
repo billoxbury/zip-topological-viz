@@ -1,0 +1,17 @@
+{
+    "contents" : "\n\nlibrary(httr)\n\n( r <- GET(\"http://httpbin.org/get\") )\n\nstatus_code(r)\nheaders(r)\nheaders(r)$date\nheaders(r)$DATE\n\nstr(content(r))\n\nhttp_status(r)\nr$status_code\n\nwarn_for_status(r) # use for calls to GET inside functions for debugging\nstop_for_status(r)\n\ncontent(r, \"text\")\nstringi::stri_enc_detect(content(r, \"raw\"))\ncontent(r, \"raw\")\n\n# E.g.\n# bin <- content(r, \"raw\")\n# writeBin(bin, \"myfile.txt\")\n\n# JSON automatically parsed into named list\nstr(content(r, \"parsed\"))\n\nr <- GET(\"http://httpbin.org/cookies/set\", query = list(a = 1))\ncookies(r)\n\n\n\n###############################################################\n# twitter account:\n\naccess_token_key <- \"1404825878-r4htKGEg8C45YIqtjH74fbBJiPDMypsfRABzq5C\"\naccess_token_secret <- \"aU4aRhW6axlYtZ0HXxXdlBQJQwL45veggmbTh4do\"\n\nconsumer_key <- \"PCfUxPHPI2ycSURLiGTQ\"\nconsumer_secret <- \"RvQoOlLbD1Cc1M7XB38cDjy9p0pIdFnfgAMv6hmFw\"\n\n###############################################################\n#\n\nlibrary(twitteR)\n\nsetup_twitter_oauth(consumer_key, \n                    consumer_secret, \n                    access_token=access_token_key, \n                    access_secret=access_token_secret)\n\n\n# E.g.:\nn <- 100\n\n( tweets <- searchTwitter('@UKLabour', n=n) )\n\nstr(tweets[[1]])\n\nfor(i in 1:n) cat(tweets[[i]]$text, '\\n')\n\nsum(sapply(tweets, function(x) x$isRetweet))\n\ndf <- cbind(\n  sapply(tweets, function(x) x$screenName),\n  sapply(tweets, function(x) x$text)\n)\ndf[order(df[,1]),]\n\n( bill <- getUser('box121209') )\nstr(bill)\n\ndat <- bill$toDataFrame()\n\n# example from documentation:\n\nlibrary(ggplot2)\n\nrtweets <- searchTwitter(\"#rstats\", n=300)\n\nsources <- sapply(rtweets, function(x) x$getStatusSource())\nsources <- gsub(\"</a>\", \"\", sources)\nsources <- strsplit(sources, \">\")\nsources <- sapply(sources, function(x) ifelse(length(x) > 1, x[2], x[1]))\n\n#filtered_sources = names(source_table[source_table < quantile(source_table, 0.9)])\ntab = table(sources)\n#sources[sources %in% filtered_sources] = \"other\"\n\ndf = as.data.frame(sources)\nggplot(df, aes(sources)) + geom_bar() + coord_flip()\n\n# or:\nmai <- par()$mai\npar(mai = c(1,3,1,1)*mai)\nbarplot(tab[rev(order(tab))], horiz=TRUE, las=1, col='lightgrey')\npar(mai=mai)\n\n",
+    "created" : 1442158397389.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "224909609",
+    "id" : "8A342B7F",
+    "lastKnownWriteTime" : 1439723590,
+    "path" : "~/Blog/ec2/_INPROGRESS_twitter/getting_started.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
